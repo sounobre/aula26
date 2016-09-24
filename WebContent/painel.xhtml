@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head></h:head>
+	<h:body>
+		
+		<p:panel header="CADASTRAR PESSOA">
+			<h:form id="form1">
+			<h:panelGrid columns="2">
+				
+				<h:outputText value="Nome: " />
+				<p:inputText value="#{pBean.pessoa.nome}" />
+				
+				<h:outputText value="E-mail: " />
+				<p:inputText value="#{pBean.pessoa.email}" />
+				
+				<h:outputText value="Telefone: " />
+				<p:inputMask mask="(99) 99999-9999" value="#{pBean.pessoa.telefone}" />
+				
+				<h:outputText value="Sexo: " />
+				<p:selectOneRadio value="#{pBean.pessoa.sexo}">
+					<f:selectItem itemValue="M" itemLabel="M" />
+					<f:selectItem itemValue="F" itemLabel="F" />
+				</p:selectOneRadio>
+
+			</h:panelGrid>
+			<p:commandButton value="CADASTRAR" update="form1" 
+				action="#{pBean.cadastrar}" />
+			<p:message for="form1"></p:message>
+			</h:form>
+		</p:panel>
+		
+	</h:body>
+
+</html>
